@@ -1,0 +1,15 @@
+service: aws-lambda-api-service
+frameworkVersion: "1.54.0"
+provider:
+  name: aws
+  runtime: nodejs10.x
+  stage: dev
+  profile: amorelos@condorlabs.io #Es necesario un user admin en aws, no tengo permisos para crear uno. tocó con amoleros.
+  region: us-east-1
+functions:
+  hello:
+    handler: handler.hello
+    events:
+      - http:
+          method: get
+          path: /helloWorld
